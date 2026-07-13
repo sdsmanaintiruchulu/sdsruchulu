@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SDS Mana Inti Ruchulu</title>
+<style>
+:root{--g:#063c1f;--gold:#d5a229;--cream:#fff8e9}*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:#1d251f}
+header{position:sticky;top:0;z-index:5;background:#fffaf0ee;border-bottom:1px solid #e8d9b8}
+.nav{max-width:1200px;margin:auto;padding:10px 22px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:68px;height:68px;object-fit:cover;border-radius:50%}.brand b{font-size:1.35rem;color:var(--g)}
+nav a{margin-left:18px;color:var(--g);font-weight:700;text-decoration:none}
+.hero{padding:70px 22px;background:linear-gradient(135deg,#fff8e9,#f2e2bd);text-align:center}
+.hero h1{font-size:clamp(2.5rem,7vw,5.5rem);margin:10px 0;color:var(--g)}.hero h1 span{color:var(--gold)}
+.hero p{font-size:1.25rem;max-width:760px;margin:15px auto 28px;line-height:1.6}
+.badge,.btn{display:inline-block;background:var(--g);color:white;font-weight:800}.badge{padding:9px 16px;border-radius:30px}.btn{padding:14px 24px;border-radius:12px;text-decoration:none}
+section{max-width:1200px;margin:auto;padding:70px 22px}.title{text-align:center;color:var(--g);font-size:2.4rem;margin:0 0 12px}.sub{text-align:center;max-width:720px;margin:0 auto 35px;line-height:1.6}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.value{background:white;border:1px solid #ead9b6;border-radius:20px;padding:25px;box-shadow:0 10px 30px #3a2a1010}.value h3{color:var(--g)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.product{background:white;border-radius:20px;overflow:hidden;box-shadow:0 14px 35px #3b2b151c}.product{cursor:pointer;transition:transform .25s ease}.product:hover{transform:translateY(-6px)}.product img{width:100%;display:block}.product h3{margin:18px 20px 5px;color:var(--g);font-size:1.35rem}.product p{margin:0 20px 22px;color:#666}
+.fssai{margin:20px auto 70px;max-width:1150px;background:var(--g);color:white;border-radius:22px;padding:28px;text-align:center}.fssai strong{font-size:1.65rem}.num{font-size:clamp(1.7rem,5vw,3rem);font-weight:900;letter-spacing:2px;color:#ffd66f;margin-top:8px}
+footer{background:#032b17;color:white;text-align:center;padding:35px 20px}.footer-logo{width:85px;height:85px;object-fit:cover;border-radius:50%;margin-bottom:10px}
+@media(max-width:850px){.values{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr}.nav nav{display:none}}@media(max-width:520px){.values{grid-template-columns:1fr}.brand b{font-size:1.05rem}.brand img{width:52px;height:52px}}
+
+.modal{display:none;position:fixed;z-index:1000;inset:0;background:rgba(0,0,0,.88);padding:24px;overflow:auto}
+.modal.open{display:flex;align-items:flex-start;justify-content:center}
+.modal-box{position:relative;width:min(1050px,96vw);margin:auto;background:#fff8e9;border-radius:18px;padding:18px;animation:zoomIn .22s ease}
+.modal-img{display:block;width:100%;height:auto;max-height:none;border-radius:12px}
+.close{position:fixed;right:28px;top:20px;width:48px;height:48px;border:0;border-radius:50%;background:white;color:#063c1f;font-size:32px;font-weight:bold;cursor:pointer;z-index:1001}
+.modal-title{text-align:center;color:#063c1f;margin:10px 0 16px}
+.zoom-note{text-align:center;margin:0 0 12px;color:#666;font-weight:700}
+@keyframes zoomIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+</style></head><body>
+<header><div class="nav"><div class="brand"><img src="sds-logo.jpg" alt="SDS logo"><b>SDS Mana Inti Ruchulu</b></div><nav><a href="#values">Our Values</a><a href="#products">Products</a><a href="#fssai">FSSAI</a></nav></div></header>
+<div class="hero"><span class="badge">100% Natural & Homemade</span><h1>Pure Ingredients.<br><span>Honest Nutrition.</span></h1><p>Traditional homemade laddus prepared with care, wholesome ingredients and the taste of home.</p><a class="btn" href="#products">Explore Our Products</a></div>
+<section id="values"><h2 class="title">Our Values</h2><p class="sub">Wholesome goodness in every bite.</p><div class="values">
+<div class="value"><h3>🏡 Homemade with Care</h3><p>Prepared in small batches with attention to hygiene, freshness and quality.</p></div>
+<div class="value"><h3>🌿 Pure Ingredients</h3><p>Carefully selected ingredients for traditional taste and everyday enjoyment.</p></div>
+<div class="value"><h3>🪔 Traditional Goodness</h3><p>Home-style recipes inspired by familiar Indian flavours.</p></div>
+<div class="value"><h3>🤝 Trust & Transparency</h3><p>Clear product information, honest pricing and customer-first service.</p></div></div></section>
+<section id="products"><h2 class="title">Our Products</h2><p class="sub">Ingredients, nutrition information, pack sizes and pricing are shown in each product design.</p><div class="products">
+<article class="product" onclick="openProduct('minapa-sunnunda.png','Minapa Sunnunda')"><img src="minapa-sunnunda.png" alt="SDS Minapa Sunnunda"><h3>Minapa Sunnunda</h3><p>Traditional goodness made with love.</p></article>
+<article class="product" onclick="openProduct('healthy-laddu.png','Healthy Laddu')"><img src="healthy-laddu.png" alt="SDS Healthy Laddu"><h3>Healthy Laddu</h3><p>Nutritious, delicious and homemade.</p></article>
+<article class="product" onclick="openProduct('protein-laddu.png','Protein Laddu')"><img src="protein-laddu.png" alt="SDS Protein Laddu"><h3>Protein Laddu</h3><p>Wholesome superfoods in every bite.</p></article></div></section>
+<div class="fssai" id="fssai"><strong>FSSAI Registration Number</strong><div class="num">21226010004884</div></div>
+<footer><img class="footer-logo" src="sds-logo.jpg" alt="SDS logo"><div><strong>SDS Mana Inti Ruchulu</strong></div><div>Pure Ingredients. Honest Nutrition.</div><div style="margin-top:10px">FSSAI No. 21226010004884 &nbsp; • &nbsp; Call / WhatsApp: 7032387873</div></footer>
+
+<div class="modal" id="productModal" onclick="closeProduct(event)">
+  <button class="close" aria-label="Close" onclick="closeProduct(event,true)">&times;</button>
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <p class="zoom-note">Full product details — scroll to view the complete design</p>
+    <img class="modal-img" id="modalImage" src="" alt="Product details">
+  </div>
+</div>
+<script>
+function openProduct(image,title){
+  document.getElementById('modalImage').src=image;
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeProduct(event,force){
+  if(force || event.target.id==='productModal'){
+    document.getElementById('productModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    document.getElementById('productModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+</script>
+</body></html>
