@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>SDS Mana Inti Ruchulu</title>
 <style>
 :root{--g:#063c1f;--gold:#d5a229;--cream:#fff8e9}*{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -15,7 +16,6 @@ nav a{margin-left:18px;color:var(--g);font-weight:700;text-decoration:none}
 section{max-width:1200px;margin:auto;padding:70px 22px}.title{text-align:center;color:var(--g);font-size:2.4rem;margin:0 0 12px}.sub{text-align:center;max-width:720px;margin:0 auto 35px;line-height:1.6}
 .values{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.value{background:white;border:1px solid #ead9b6;border-radius:20px;padding:25px;box-shadow:0 10px 30px #3a2a1010}.value h3{color:var(--g)}
 .products{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.product{background:white;border-radius:20px;overflow:hidden;box-shadow:0 14px 35px #3b2b151c}.product{cursor:pointer;transition:transform .25s ease}.product:hover{transform:translateY(-6px)}.product img{width:100%;display:block}.product h3{margin:18px 20px 5px;color:var(--g);font-size:1.35rem}.product p{margin:0 20px 22px;color:#666}
-.fssai{margin:20px auto 70px;max-width:1150px;background:var(--g);color:white;border-radius:22px;padding:28px;text-align:center}.fssai strong{font-size:1.65rem}.num{font-size:clamp(1.7rem,5vw,3rem);font-weight:900;letter-spacing:2px;color:#ffd66f;margin-top:8px}
 footer{background:#032b17;color:white;text-align:center;padding:35px 20px}.footer-logo{width:85px;height:85px;object-fit:cover;border-radius:50%;margin-bottom:10px}
 @media(max-width:850px){.values{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr}.nav nav{display:none}}@media(max-width:520px){.values{grid-template-columns:1fr}.brand b{font-size:1.05rem}.brand img{width:52px;height:52px}}
 
@@ -27,30 +27,241 @@ footer{background:#032b17;color:white;text-align:center;padding:35px 20px}.foote
 .modal-title{text-align:center;color:#063c1f;margin:10px 0 16px}
 .zoom-note{text-align:center;margin:0 0 12px;color:#666;font-weight:700}
 @keyframes zoomIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.info-card{background:white;border:1px solid #ead9b6;border-radius:20px;padding:26px;box-shadow:0 10px 30px #3a2a1010;text-align:center}
+.info-card h3{color:var(--g);margin-top:8px}
+.info-icon{font-size:2.6rem}
+.coming-soon{position:relative;min-height:420px;background:linear-gradient(145deg,#f5dfae,#fffaf0);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:35px}
+.coming-soon .dryfruit{font-size:5rem;margin-bottom:15px}
+.coming-soon .soon-badge{background:var(--g);color:#fff;padding:10px 18px;border-radius:30px;font-weight:900;letter-spacing:1px}
+.payments{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+.pay-icon{display:inline-flex;align-items:center;justify-content:center;min-width:115px;padding:12px 16px;border-radius:14px;background:#fff;border:2px solid #ead9b6;font-weight:900;color:#222}
+.contact-block{background:#f7e8c5;border-top:1px solid #dfc58c;padding:34px 20px;text-align:center;color:#173b24}
+.contact-block p{margin:8px auto;max-width:900px;line-height:1.55}
+.contact-block a{color:var(--g);font-weight:800;text-decoration:none}
+@media(max-width:850px){.info-grid{grid-template-columns:1fr}}
+
+
+/* Product ordering and cart */
+.product{display:flex;flex-direction:column;height:100%}
+.product img{aspect-ratio:1/1;object-fit:cover;cursor:pointer}
+.product h3,.product p{flex:0 0 auto}
+.product-controls{padding:0 20px 22px;margin-top:auto}
+.product-controls label{display:block;font-weight:800;color:var(--g);margin-bottom:7px}
+.pack-select{width:100%;padding:12px;border:1px solid #d8c49b;border-radius:10px;background:#fff;font-size:1rem;margin-bottom:10px}
+.add-cart{width:100%;border:0;border-radius:10px;padding:13px;background:var(--g);color:#fff;font-size:1rem;font-weight:800;cursor:pointer}
+.add-cart:hover{background:#0a572e}
+.cart{max-width:1150px;margin:0 auto 60px;background:white;border:1px solid #ead9b6;border-radius:20px;padding:24px;box-shadow:0 12px 30px #3b2b1515}
+.cart h2{margin-top:0;color:var(--g)}
+.cart-empty{color:#777}
+.cart-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
+.cart-row small{display:block;color:#777;margin-top:4px}
+.remove{border:0;background:#f6e8e8;color:#9b1c1c;border-radius:8px;padding:8px 10px;cursor:pointer}
+.cart-total{font-size:1.25rem;font-weight:900;text-align:right;margin:18px 0;color:var(--g)}
+.whatsapp-order{display:block;text-align:center;background:#128C7E;color:white;text-decoration:none;font-weight:900;padding:14px;border-radius:12px}
+.cart-count{display:inline-flex;min-width:24px;height:24px;align-items:center;justify-content:center;border-radius:50%;background:var(--gold);color:#fff;font-size:.8rem;margin-left:5px}
+@media(max-width:600px){
+  .cart-row{grid-template-columns:1fr auto}
+  .cart-row .remove{grid-column:1/-1;width:100%}
+  .product img{aspect-ratio:auto}
+}
+
+
+.hero{
+  padding:0;
+  background:none;
+  text-align:center;
+}
+.hero-banner{
+  width:100%;
+  display:block;
+  max-width:1400px;
+  margin:0 auto;
+}
 </style></head><body>
-<header><div class="nav"><div class="brand"><img src="sds-logo.jpg" alt="SDS logo"><b>SDS Mana Inti Ruchulu</b></div><nav><a href="#values">Our Values</a><a href="#products">Products</a><a href="#fssai">FSSAI</a></nav></div></header>
-<div class="hero"><span class="badge">100% Natural & Homemade</span><h1>Pure Ingredients.<br><span>Honest Nutrition.</span></h1><p>Traditional homemade laddus prepared with care, wholesome ingredients and the taste of home.</p><a class="btn" href="#products">Explore Our Products</a></div>
+<header><div class="nav"><div class="brand"><img alt="SDS logo" src="sds-logo.jpg"/><b>SDS Mana Inti Ruchulu</b></div><nav><a href="#values">Our Values</a><a href="#products">Products</a><a href="#cart">Cart <span class="cart-count" id="cartCount">0</span></a><a href="#orders">Bulk Orders</a><a href="#contact">Contact</a></nav></div></header>
+<div class="hero"><img alt="SDS Mana Inti Ruchulu Main Banner" class="hero-banner" src="cockingbanner.png"/></div>
 <section id="values"><h2 class="title">Our Values</h2><p class="sub">Wholesome goodness in every bite.</p><div class="values">
 <div class="value"><h3>🏡 Homemade with Care</h3><p>Prepared in small batches with attention to hygiene, freshness and quality.</p></div>
 <div class="value"><h3>🌿 Pure Ingredients</h3><p>Carefully selected ingredients for traditional taste and everyday enjoyment.</p></div>
 <div class="value"><h3>🪔 Traditional Goodness</h3><p>Home-style recipes inspired by familiar Indian flavours.</p></div>
-<div class="value"><h3>🤝 Trust & Transparency</h3><p>Clear product information, honest pricing and customer-first service.</p></div></div></section>
-<section id="products"><h2 class="title">Our Products</h2><p class="sub">Ingredients, nutrition information, pack sizes and pricing are shown in each product design.</p><div class="products">
-<article class="product" onclick="openProduct('minapa-sunnunda.png','Minapa Sunnunda')"><img src="minapa-sunnunda.png" alt="SDS Minapa Sunnunda"><h3>Minapa Sunnunda</h3><p>Traditional goodness made with love.</p></article>
-<article class="product" onclick="openProduct('healthy-laddu.png','Healthy Laddu')"><img src="healthy-laddu.png" alt="SDS Healthy Laddu"><h3>Healthy Laddu</h3><p>Nutritious, delicious and homemade.</p></article>
-<article class="product" onclick="openProduct('protein-laddu.png','Protein Laddu')"><img src="protein-laddu.png" alt="SDS Protein Laddu"><h3>Protein Laddu</h3><p>Wholesome superfoods in every bite.</p></article></div></section>
-<div class="fssai" id="fssai"><strong>FSSAI Registration Number</strong><div class="num">21226010004884</div></div>
-<footer><img class="footer-logo" src="sds-logo.jpg" alt="SDS logo"><div><strong>SDS Mana Inti Ruchulu</strong></div><div>Pure Ingredients. Honest Nutrition.</div><div style="margin-top:10px">FSSAI No. 21226010004884 &nbsp; • &nbsp; Call / WhatsApp: 7032387873</div></footer>
+<div class="value"><h3>🤝 Trust &amp; Transparency</h3><p>Clear product information, honest pricing and customer-first service.</p></div></div></section>
+<section id="products"><h2 class="title">Our Products</h2><p class="sub">Select a pack size to see the cost, then add the product to your cart. Click a product image to view full details.</p><div class="products">
+<article class="product">
+<img alt="SDS Minapa Sunnunda" onclick="openProduct(this.src,'Minapa Sunnunda')" onerror="this.onerror=null;this.src='minapa-sunnunda.png';" src="minapa-sunnunda(1).png"/>
+<h3>Minapa Sunnunda</h3><p>Traditional goodness made with love.</p>
+<div class="product-controls"><label for="minapaPack">Select Quantity &amp; Price</label>
+<select class="pack-select" id="minapaPack">
+<option value="4 Laddus (Approx. 125 g)|100">4 Laddus (Approx. 125 g) — ₹100</option>
+<option value="8 Laddus (Approx. 250 g)|195">8 Laddus (Approx. 250 g) — ₹195</option>
+<option value="16 Laddus (Approx. 500 g)|380">16 Laddus (Approx. 500 g) — ₹380</option>
+<option value="32 Laddus (Approx. 1 kg)|740">32 Laddus (Approx. 1 kg) — ₹740</option>
+<option value="64 Laddus (Approx. 2 kg)|1440">64 Laddus (Approx. 2 kg) — ₹1,440</option>
+</select>
+<button class="add-cart" onclick="addToCart('Minapa Sunnunda','minapaPack')">Add to Cart</button>
+</div>
+</article>
+<article class="product">
+<img alt="SDS Healthy Laddu" onclick="openProduct(this.src,'Healthy Laddu')" onerror="this.onerror=null;this.src='healthy-laddu.png';" src="healthy-laddu.png"/>
+<h3>Healthy Laddu</h3><p>Nutritious, delicious and homemade.</p>
+<div class="product-controls"><label for="healthyPack">Select Quantity &amp; Price</label>
+<select class="pack-select" id="healthyPack">
+<option value="3 Laddus (Approx. 125 g)|100">3 Laddus (Approx. 125 g) — ₹100</option>
+<option value="6 Laddus (Approx. 250 g)|195">6 Laddus (Approx. 250 g) — ₹195</option>
+<option value="12 Laddus (Approx. 500 g)|380">12 Laddus (Approx. 500 g) — ₹380</option>
+<option value="24 Laddus (Approx. 1 kg)|740">24 Laddus (Approx. 1 kg) — ₹740</option>
+<option value="48 Laddus (Approx. 2 kg)|1440">48 Laddus (Approx. 2 kg) — ₹1,440</option>
+</select>
+<button class="add-cart" onclick="addToCart('Healthy Laddu','healthyPack')">Add to Cart</button>
+</div>
+</article>
+<article class="product">
+<img alt="SDS Protein Laddu" onclick="openProduct(this.src,'Protein Laddu')" src="protein-laddu.png"/>
+<h3>Protein Laddu</h3><p>Wholesome superfoods in every bite.</p>
+<div class="product-controls"><label for="proteinPack">Select Quantity &amp; Price</label>
+<select class="pack-select" id="proteinPack">
+<option value="3 Laddus (Approx. 125 g)|120">3 Laddus (Approx. 125 g) — ₹120</option>
+<option value="6 Laddus (Approx. 250 g)|235">6 Laddus (Approx. 250 g) — ₹235</option>
+<option value="12 Laddus (Approx. 500 g)|460">12 Laddus (Approx. 500 g) — ₹460</option>
+<option value="24 Laddus (Approx. 1 kg)|900">24 Laddus (Approx. 1 kg) — ₹900</option>
+<option value="48 Laddus (Approx. 2 kg)|1760">48 Laddus (Approx. 2 kg) — ₹1,760</option>
+</select>
+<button class="add-cart" onclick="addToCart('Protein Laddu','proteinPack')">Add to Cart</button>
+</div>
+</article>
+<article class="product">
+<div aria-label="More Laddus coming soon" class="coming-soon" role="img">
+<div class="dryfruit"></div><span class="soon-badge">COMING SOON</span>
+<h3>Dry Fruit Laddu's &amp; More..</h3><p>Rich, wholesome dry-fruit goodness — launching soon.</p>
+</div>
+</article>
+</div></section>
+<div class="cart" id="cart">
+<h2>🛒 Your Cart</h2>
+<div class="cart-empty" id="cartItems">Your cart is empty.</div>
+<div class="cart-total" id="cartTotal"></div>
+<h2 details<="" h2="" your="">
+<h2>Customer Details</h2>
+<div style="display:grid;gap:10px;margin:15px 0">
+<input id="custName" placeholder="Contact Name *" style="padding:10px"/>
+<input id="custPhone" maxlength="10" placeholder="Phone Number *" style="padding:10px"/>
+<textarea id="custAddress" placeholder="Address *" style="padding:10px"></textarea>
+<input id="custPin" maxlength="6" placeholder="PIN Code *" style="padding:10px"/>
 
+</div>
+<a class="whatsapp-order" href="#" id="whatsappOrder" rel="noopener" style="display:none" target="_blank" onclick="sendWhatsAppOrder();return false;">Order Cart on WhatsApp</a>
+</h2></div>
+<section id="orders">
+<h2 class="title">Bulk Orders &amp; Payments</h2>
+<p class="sub">Planning a festival, family function or special occasion? We accept advance bulk orders.</p>
+<div class="info-grid">
+<div class="info-card">
+<div class="info-icon">🎉</div>
+<h3>Festivals &amp; Functions</h3>
+<p>Bulk orders can be taken for festivals and functions. Please place your order at least <strong>24 hours in advance</strong>.</p>
+</div>
+<div class="info-card">
+<div class="info-icon">📱</div>
+<h3>UPI Payments Accepted</h3>
+<p>Convenient digital payments are accepted.</p>
+<div class="payments">
+<span class="pay-icon"><img alt="PhonePe" src="phonepe.png"/></span>
+<span class="pay-icon"><img alt="GPay" src="gpay.png"/></span>
+<span class="pay-icon"><img alt="Paytm" src="paytm.png"/></span>
+</div>
+</div>
+<div class="info-card">
+<div class="info-icon">📦</div>
+<h3>Freshly Prepared</h3>
+<p>Orders are prepared with care in small batches for freshness, hygiene and quality.</p>
+</div>
+</div>
+</section>
+<div class="contact-block" id="contact">
+<h2 class="title">Contact &amp; Manufacturer Details</h2>
+<p><strong>Email:</strong> <a href="mailto:sdsmanainitruchulu@gmail.com">sdsmanainitruchulu@gmail.com</a></p>
+<p><strong>Manufactured By:</strong> SDS Mana Inti Ruchulu, Flat No. 108, Begur Road, Bangalore, Karnataka - 560114</p>
+<p><strong>Call / WhatsApp:</strong> <a href="https://wa.me/917032387873">7032387873</a></p>
+</div>
+<footer><img alt="SDS logo" class="footer-logo" src="sds-logo.jpg"/><div><strong>SDS Mana Inti Ruchulu</strong></div><div>Pure Ingredients. Honest Nutrition.</div><div style="margin-top:10px">🍽️ FSSAI Lic. No. 21226010004884</div><div style="margin-top:10px">© Copyright 2026 SDS Mana Inti Ruchulu. All Rights Reserved.</div></footer>
 <div class="modal" id="productModal" onclick="closeProduct(event)">
-  <button class="close" aria-label="Close" onclick="closeProduct(event,true)">&times;</button>
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <h2 class="modal-title" id="modalTitle"></h2>
-    <p class="zoom-note">Full product details — scroll to view the complete design</p>
-    <img class="modal-img" id="modalImage" src="" alt="Product details">
-  </div>
+<button aria-label="Close" class="close" onclick="closeProduct(event,true)">×</button>
+<div class="modal-box" onclick="event.stopPropagation()">
+<h2 class="modal-title" id="modalTitle"></h2>
+<p class="zoom-note">Full product details — scroll to view the complete design</p>
+<img alt="Product details" class="modal-img" id="modalImage" src=""/>
+</div>
 </div>
 <script>
+
+const cart=[];
+function orderNo(){
+ let s=Number(localStorage.getItem('orderSeq')||0)+1;
+ localStorage.setItem('orderSeq',s);
+ const d=new Date();
+ const ds='808320' + String(d.getDate()).padStart(2,'0')+String(d.getMonth()+1).padStart(2,'0');
+ return `#ORD-${ds}${String(s).padStart(4,'013')}`;
+}
+function changeQty(i,d){
+ cart[i].qty+=d;
+ if(cart[i].qty<=0) cart.splice(i,1);
+ renderCart();
+}
+
+function addToCart(product,selectId){
+  const select=document.getElementById(selectId);
+  const [pack,priceText]=select.value.split('|');
+  const price=Number(priceText);
+  const existing=cart.find(x=>x.product===product && x.pack===pack);
+  if(existing) existing.qty++;
+  else cart.push({product,pack,price,qty:1});
+  renderCart();
+}
+function removeFromCart(index){
+  cart.splice(index,1);
+  renderCart();
+}
+function renderCart(){
+  const box=document.getElementById('cartItems');
+  const totalBox=document.getElementById('cartTotal');
+  const btn=document.getElementById('whatsappOrder');
+  const count=cart.reduce((n,x)=>n+x.qty,0);
+  document.getElementById('cartCount').textContent=count;
+  if(!cart.length){
+    box.className='cart-empty';
+    box.innerHTML='Your cart is empty.';
+    totalBox.textContent='';
+    btn.style.display='none';
+    return;
+  }
+  box.className='';
+  let total=0;
+  box.innerHTML=cart.map((x,i)=>{
+    const line=x.price*x.qty;
+    total+=line;
+    return `<div class="cart-row"><div><strong>${x.product}</strong><small>${x.pack}</small><div><button onclick="changeQty(${i},-1)">-</button> <b>${x.qty}</b> <button onclick="changeQty(${i},1)">+</button></div></div><strong>₹${line.toLocaleString('en-IN')}</strong><button class="remove" onclick="removeFromCart(${i})">Remove</button></div>`;
+  }).join('');
+  totalBox.textContent='Total: ₹'+total.toLocaleString('en-IN');
+  const lines=cart.map(x=>`• ${x.product} - ${x.pack} × ${x.qty} = ₹${(x.price*x.qty).toLocaleString('en-IN')}`);
+  const n=document.getElementById('custName').value.trim();
+const p=document.getElementById('custPhone').value.trim();
+const a=document.getElementById('custAddress').value.trim();
+const pin=document.getElementById('custPin').value.trim();
+if(!n||!p||!a||!pin){btn.style.display='none';return;}
+const ord=localStorage.getItem('currentOrderNo') || orderNo();
+localStorage.setItem('currentOrderNo',ord);
+const msg=`Order No: ${ord} 
+
+Customer: ${n}
+Phone: ${p}
+Address: ${a}
+PIN: ${pin}
+
+Hello SDS Mana Inti Ruchulu, I would like to order:\n\n${lines.join('\n')}\n\nTotal: ₹${total.toLocaleString('en-IN')}\n\nPlease confirm availability and delivery details.`;
+  btn.style.display='block';
+}
+
 function openProduct(image,title){
   document.getElementById('modalImage').src=image;
   document.getElementById('modalTitle').textContent=title;
@@ -69,5 +280,43 @@ document.addEventListener('keydown',function(e){
     document.body.style.overflow='';
   }
 });
+['custName','custPhone','custAddress','custPin'].forEach(id=>{
+document.getElementById(id).addEventListener('input',renderCart);
+});
+
+function sendWhatsAppOrder(){
+ const n=document.getElementById('custName').value.trim();
+ const p=document.getElementById('custPhone').value.trim();
+ const a=document.getElementById('custAddress').value.trim();
+ const pin=document.getElementById('custPin').value.trim();
+ const total=cart.reduce((t,x)=>t+x.price*x.qty,0);
+ const ord=localStorage.getItem('currentOrderNo')||orderNo();
+ localStorage.setItem('currentOrderNo',ord);
+ const items=cart.map((x,i)=>`${i+1}. ${x.product}
+📦 ${x.pack}
+Qty : ${x.qty}
+Rate : ₹${x.price}
+Amount : ₹${(x.price*x.qty).toLocaleString('en-IN')}`).join('\n\n');
+ const msg=`🛒 *SDS Mana Inti Ruchulu - New Order*
+
+🆔 Order No : ${ord}
+📅 ${new Date().toLocaleDateString('en-IN')}
+⏰ ${new Date().toLocaleTimeString('en-IN')}
+
+👤 Customer Details
+Name : ${n}
+Phone : ${p}
+Address : ${a}
+PIN : ${pin}
+
+🛍 Products
+${items}
+
+💰 Total : ₹${total.toLocaleString('en-IN')}
+
+Please confirm my order. Thank you.`;
+ window.open('https://wa.me/917032387873?text='+encodeURIComponent(msg),'_blank');
+ localStorage.removeItem('currentOrderNo');
+}
 </script>
 </body></html>
